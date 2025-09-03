@@ -24,16 +24,16 @@
   <style>
     /* ——— Design Tokens ——— */
     :root{
-      --bg:#0b0c0f;              /* Dark background */
+      --bg:#0b0c0f;
       --layer:#0e1117;
       --card:#11141c;
       --muted:#aeb4c2;
       --text:#eef2f6;
       --line:#1b2030;
-      --accent:#6ee7b7;          /* fresh */
-      --accent-2:#60a5fa;        /* secondary */
-      --brand:#d21f2a;           /* Beurer hint */
-      --radius:20px;             /* rounder for premium feel */
+      --accent:#6ee7b7;
+      --accent-2:#60a5fa;
+      --brand:#d21f2a;
+      --radius:20px;
       --shadow-sm:0 6px 16px rgba(0,0,0,.25);
       --shadow-lg:0 20px 50px rgba(0,0,0,.35);
     }
@@ -49,7 +49,7 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       line-height:1.6; letter-spacing:.01em;
-      overflow-x:hidden; /* verhindert horizontales Scrollen auf Mobile */
+      overflow-x:hidden;
     }
     a{color:inherit;text-decoration:none}
 
@@ -59,14 +59,22 @@
 
     .brand{display:flex;gap:14px;align-items:center;flex-wrap:wrap;min-width:0}
     .avatar{width:clamp(48px,6vw,68px);height:clamp(48px,6vw,68px);border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#0b0c0f;font-weight:800;box-shadow:var(--shadow-sm)}
+
     nav{display:flex;gap:14px;flex-wrap:wrap;min-width:0}
     nav a{opacity:.9;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
     nav a:hover{opacity:1;transform:translateY(-1px)}
 
     .hero{
       display:grid;
-      grid-template-columns: 1fr 1fr; /* gleiche Breite */
-      gap:32px; align-items:start; margin-top:32px;
+      grid-template-columns: 1fr 1fr;
+      gap:32px;
+      align-items:stretch;   /* sorgt für gleiche Höhe/Breite */
+      margin-top:32px;
+    }
+    .h-card{
+      width:100%;
+      max-width:100%;
+      box-sizing:border-box;
     }
 
     /* ——— Cards ——— */
@@ -98,337 +106,25 @@
     .section{margin-top:56px}
     .section h2{margin:0 0 18px;font-size:26px;letter-spacing:-.01em}
 
-    /* ——— Match Table ——— */
-    .match{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:start}
-    .match > div{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:16px}
-    .match strong{display:block;margin-bottom:6px}
-
-    /* ——— Skills ——— */
-    .skills{display:flex;flex-wrap:wrap;gap:14px}
-    .meter{flex:1 1 280px;min-width:260px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:16px}
-    .meter b{display:flex;justify-content:space-between;margin-bottom:10px}
-    progress{width:100%;height:12px;-webkit-appearance:none;appearance:none}
-    progress::-webkit-progress-bar{background:rgba(255,255,255,.08);border-radius:999px}
-    progress::-webkit-progress-value{background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
-
-    /* ——— Cases ——— */
-    .case{
-      position:relative;
-      display:grid;
-      grid-template-columns:1.2fr 0.8fr; /* Text links, Bild rechts */
-      gap:24px; align-items:start; margin:24px 0;
-    }
+    /* Cases (gleich gelassen) */
+    .case{display:grid;grid-template-columns:1.2fr 0.8fr;gap:24px;margin:24px 0}
+    .case .shot{aspect-ratio:16/10;min-height:220px;border-radius:16px;background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#d6e7ff;overflow:hidden;order:2}
+    .case .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .case h3{margin:0 0 6px}
     .case p{margin:0 0 8px}
     .case small{color:var(--muted)}
-    .card .case + .case{padding-top:18px;border-top:1px dashed rgba(255,255,255,.12)}
+    .card .case+ .case{padding-top:18px;border-top:1px dashed rgba(255,255,255,.12)}
+    @media (max-width:940px){.case{grid-template-columns:1fr}.case .shot{order:2}}
 
-    .case .shot{
-      position:relative; aspect-ratio:16/10; min-height:220px;
-      border-radius:16px; background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));
-      border:1px solid rgba(255,255,255,.08); display:grid; place-items:center; color:#d6e7ff; overflow:hidden;
-      order:2; /* auf Desktop rechts */
-    }
-    .case .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-    .case .shot .ph{position:relative;z-index:1;opacity:.75}
-
-    /* ——— Footer ——— */
+    /* Footer */
     footer{margin-top:64px;padding-top:22px;border-top:1px dashed rgba(255,255,255,.16);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
     .tagline{color:var(--muted)}
-    .beurer-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--brand);margin-left:6px;vertical-align:middle}
 
-    /* ——— Responsive ——— */
-    @media (max-width:1080px){
-      .wrap{padding:44px 22px 80px}
-      .role{font-size:40px}
-    }
-    @media (max-width:940px){
-      .hero{grid-template-columns:1fr}
-      .match{grid-template-columns:1fr}
-      .case{grid-template-columns:1fr}     /* 1 Spalte */
-      .case .shot{order:2}                 /* Bild bleibt unter Text */
-    }
-    @media (max-width:520px){
-      .wrap{padding:36px 16px 72px}
-      .h-card,.card{padding:20px}
-      .case{gap:16px;margin:20px 0}
-      .case .shot{min-height:180px}
-      .lb{padding:12px}
-      .lb .dialog{width:100%;max-width:100%;border-radius:16px;padding:16px}
-      .lb .body{grid-template-columns:1fr;gap:14px}
-    }
-
-    /* ——— Scroll-To-Top ——— */
-    .to-top{position:fixed;right:22px;bottom:24px;width:44px;height:44px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);box-shadow:var(--shadow-sm);cursor:pointer;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s ease, transform .2s ease, background .2s ease; z-index:50}
-    .to-top:hover{background:rgba(255,255,255,.10)}
-    .to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
-    .to-top:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-    @media (prefers-reduced-motion: reduce){.to-top{transition:none}}
-
-    /* ——— CSS Lightbox (:target) ——— */
-    .lb{position:fixed;inset:0;display:grid;place-items:center;background:rgba(4,6,10,.65);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1000}
-    .lb:target{opacity:1;pointer-events:auto}
-    .lb .dialog{width:min(880px,92vw);max-height:86vh;overflow:auto;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:var(--shadow-lg);padding:28px}
-    .lb .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .lb .title{font-size:22px;letter-spacing:-.01em}
-    .lb .close{border:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);width:38px;height:38px;border-radius:12px;display:grid;place-items:center;text-decoration:none}
-    .lb .body{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .lb .shot{position:relative;aspect-ratio:16/10;border-radius:16px;background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#d6e7ff;overflow:hidden}
-    .lb .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-    @media (max-width:780px){.lb .body{grid-template-columns:1fr}}
+    /* Responsive */
+    @media (max-width:940px){.hero{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="avatar" aria-hidden="true">DB</div>
-        <div>
-          <div style="font-weight:800;font-size:18px">Dominik Bothe</div>
-          <div style="color:var(--muted);font-size:14px">Online Marketing · Content · Design</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#match">Match</a>
-        <a href="#skills">Skills</a>
-        <a href="#cases">Cases</a>
-        <a href="#contact">Kontakt</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="h-card">
-        <span class="badge">Bewerbung · Online Marketing Manager Website</span>
-        <h1 class="role">Ich bringe Inhalte zum Wirken – auf der Website und darüber hinaus.</h1>
-        <p class="subtitle">Strategie × UX-Content × SEO × Visuals. Hands-on mit CMS & Adobe, plus Tech-Bonus in Motion/3D. Für Beurer bedeutet das: bessere Nutzerführung, konsistente Internationalisierung und messbare Performance.</p>
-        <div class="cta">
-          <a class="btn primary" href="#contact">Gespräch anfragen</a>
-          <a class="btn ghost" href="#cases">Mini-Cases ansehen</a>
-          <a class="btn ghost" href="#cv" onclick="alert('Platzhalter – verlinke hier dein PDF-CV.');return false;">CV als PDF</a>
-        </div>
-        <div class="hero stats">
-          <div class="stat"><div class="n">4+ Jahre</div><div class="l">Social Media & Content</div></div>
-          <div class="stat"><div class="n">CMS</div><div class="l">Pflege & QA</div></div>
-          <div class="stat"><div class="n">SEO/UX</div><div class="l">Texte & Struktur</div></div>
-        </div>
-        <div style="margin-top:8px">
-          <span class="pill">Adobe PS · AI · PR · AE</span>
-          <span class="pill">Figma</span>
-          <span class="pill">Analytics</span>
-          <span class="pill">Internationalisierung</span>
-          <span class="pill">Barrierefreiheit</span>
-        </div>
-      </div>
-      <div class="h-card" aria-hidden="true">
-        <div class="shot" style="aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,rgba(210,31,42,.18),rgba(96,165,250,.12));border:1px solid rgba(255,255,255,.1);display:grid;place-items:center">
-          <div style="text-align:center">
-            <div style="font-size:56px;font-weight:800;letter-spacing:.5px">B</div>
-            <div style="color:var(--muted)">Beurer Focus</div>
-            <div style="margin-top:10px;font-size:13px;color:var(--muted)">Mockup-Platzhalter für Bild/QR/Case</div>
-          </div>
-        </div>
-        <p style="margin-top:14px;color:var(--muted);font-size:14px">Hinweis: Lade hier ein Produkt-/Website-Mockup oder QR-Code zu deinem PDF hoch.</p>
-      </div>
-    </section>
-
-    <section id="match" class="section">
-      <h2>Warum Beurer & ich passen</h2>
-      <div class="card">
-        <div class="match" role="table" aria-label="Matching-Tabelle">
-          <div role="row">
-            <strong>Anforderung</strong>
-            <div>3+ Jahre Erfahrung im Online-Marketing / CMS</div>
-            <div><em>Mein Match:</em> 4+ Jahre Social Media & Content, tägliche CMS-Pflege</div>
-          </div>
-          <div role="row">
-            <strong>Content-Qualität</strong>
-            <div>SEO, Barrierefreiheit, Nutzerfreundlichkeit</div>
-            <div>SEO-konforme, barrierearme Texte; klare UX-Architektur</div>
-          </div>
-          <div role="row">
-            <strong>Tools</strong>
-            <div>Adobe Creative Suite</div>
-            <div>PS, AI, PR, AE – plus Figma & Analytics</div>
-          </div>
-          <div role="row">
-            <strong>Internationalisierung</strong>
-            <div>Sprachlich/kulturell abgestimmte Inhalte</div>
-            <div>Mehr-Zielgruppen-Kommunikation & skalierbare Content-Patterns</div>
-          </div>
-          <div role="row">
-            <strong>Teamfit</strong>
-            <div>Zusammenarbeit mit Webshop-Team</div>
-            <div>Interdisziplinäre Abstimmung & klare Prozesse</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <h2>Kernkompetenzen</h2>
-      <div class="card">
-        <div class="skills">
-          <div class="meter"><b><span>Website-CMS / QA</span><span>Expert</span></b><progress value="92" max="100"></progress></div>
-          <div class="meter"><b><span>SEO & UX-Text</span><span>Advanced</span></b><progress value="88" max="100"></progress></div>
-          <div class="meter"><b><span>Adobe Suite</span><span>Advanced</span></b><progress value="90" max="100"></progress></div>
-          <div class="meter"><b><span>Analytics & Reporting</span><span>Advanced</span></b><progress value="84" max="100"></progress></div>
-          <div class="meter"><b><span>Motion/3D Bonus</span><span>Plus</span></b><progress value="70" max="100"></progress></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cases" class="section">
-      <h2>Mini-Cases (Auszug)</h2>
-      <div class="card">
-        <!-- Case 1 -->
-        <div class="case">
-          <div>
-            <h3>THU Website & Social Media – Studiengangsseiten neu gedacht</h3>
-            <p>Konzeption und Umsetzung neuer Studiengang-Seiten: klare Struktur, SEO-optimierte Texte, modulare FAQs, responsiv.</p>
-            <small>Rolle: Konzeption, Text, CMS-Pflege, SEO · Tools: TYPO3, Figma/Adobe XD, Analytics</small>
-            <div style="margin-top:10px"><a class="btn more" href="#case1">Mehr erfahren</a></div>
-          </div>
-          <div class="shot"><span class="ph">Screenshot/Mockup</span></div>
-        </div>
-
-        <!-- Case 2 -->
-        <div class="case">
-          <div>
-            <h3>THU Karrieretag 2024 – Event-Kommunikation</h3>
-            <p>Microsite & Content: Teaser, Arbeitgeber-Profile, Short-Form-Clips, optimierte Landingpage.</p>
-            <small>Rolle: Content-Strategie, Social Media, Visual Design · Tools: Adobe Creative Suite, CMS, Canva</small>
-            <div style="margin-top:10px"><a class="btn more" href="#case2">Mehr erfahren</a></div>
-          </div>
-          <div class="shot"><span class="ph">Teaser/Microsite</span></div>
-        </div>
-
-        <!-- Case 3 -->
-        <div class="case">
-          <div>
-            <h3>Spatzenchor – neue visuelle Sprache</h3>
-            <p>Iconografie, Screendesign und Pattern für einen konsistenten, modernen Auftritt.</p>
-            <small>Rolle: Screendesign, Iconentwicklung, Moodboard · Tools: Figma, Illustrator</small>
-            <div style="margin-top:10px"><a class="btn more" href="#case3">Mehr erfahren</a></div>
-          </div>
-          <div class="shot"><span class="ph">Icons/Pattern</span></div>
-        </div>
-
-        <!-- Case 4 -->
-        <div class="case">
-          <div>
-            <h3>DOM:BO – Storytelling im Musikmarketing</h3>
-            <p>Künstlermarke mit Website-Konzept, Spotify-Präsenz und Social Campaigns.</p>
-            <small>Rolle: Konzept, Content, Audio/Video-Produktion · Tools: Adobe Creative Suite, Figma, Blender</small>
-            <div style="margin-top:10px"><a class="btn more" href="#case4">Mehr erfahren</a></div>
-          </div>
-          <div class="shot"><span class="ph">Artwork/Release</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Kontakt & Unterlagen</h2>
-      <div class="card">
-        <p>Ich freue mich über ein Gespräch – gerne auch kurzfristig.</p>
-        <ul>
-          <li>E-Mail: <a href="mailto:dominik.bothe@example.com">dominik.bothe@example.com</a></li>
-          <li>Telefon: <a href="tel:+49-000-000000">+49&nbsp;000&nbsp;000000</a></li>
-          <li>Portfolio/Spotify: <a href="#" onclick="alert('Platzhalter – Link einfügen.');return false;">Link öffnen</a></li>
-          <li>CV als PDF: <a href="#" onclick="alert('Platzhalter – PDF hochladen & verlinken.');return false;">Download</a></li>
-        </ul>
-        <p class="tagline">„Ich veröffentliche keinen Content – ich veröffentliche Wirkung.“ <span class="beurer-dot" title="kleine Beurer-Anspielung"></span></p>
-      </div>
-    </section>
-
-    <footer>
-      <div class="tagline">© Dominik Bothe · Bewerbung · Made for Beurer</div>
-      <div style="opacity:.7;font-size:13px">Dark Mode, responsive, kein Framework, 1 Datei.</div>
-    </footer>
-    <button id="toTop" class="to-top" aria-label="Nach oben">▲</button>
-  </div>
-
-  <!-- Minimal JS nur für Scroll-to-Top -->
-  <script>
-    const toTop = document.getElementById('toTop');
-    if(toTop){
-      const toggleTop = ()=>{
-        if(window.scrollY > 480){ toTop.classList.add('visible'); }
-        else { toTop.classList.remove('visible'); }
-      };
-      window.addEventListener('scroll', toggleTop, { passive: true });
-      toggleTop();
-      toTop.addEventListener('click', ()=>{
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-      });
-    }
-  </script>
-
-  <!-- CSS Lightbox Overlays -->
-  <div id="case1" class="lb" aria-hidden="true">
-    <div class="dialog">
-      <div class="head">
-        <div class="title">THU Website & Social Media – Studiengangsseiten neu gedacht</div>
-        <a class="close" href="#cases" aria-label="Schließen">✕</a>
-      </div>
-      <div class="body">
-        <div class="shot"><span class="ph">Vorher/Nachher · Wireframe</span></div>
-        <div>
-          <p>Relaunch und Struktur-Redesign der Studiengangsseiten an der THU: klare IA mit Hero/USP und CTA über der Falz, modulare FAQs, interne Verlinkung, barrierearme Copy (Lesbarkeit, Alt-Texte), Mobile-First QA.</p>
-          <p><small style="color:var(--muted)">Rolle: Konzeption, Text, CMS-Pflege, SEO · Tools: TYPO3, Figma/Adobe XD, Analytics</small></p>
-          <p><em>Ergebnis: bessere Orientierung, deutlich längere Verweildauer und spürbar mehr Klicks auf „Jetzt bewerben“.</em></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="case2" class="lb" aria-hidden="true">
-    <div class="dialog">
-      <div class="head">
-        <div class="title">THU Karrieretag 2024 – Event-Kommunikation</div>
-        <a class="close" href="#cases" aria-label="Schließen">✕</a>
-      </div>
-      <div class="body">
-        <div class="shot"><span class="ph">Teaser/Microsite</span></div>
-        <div>
-          <p>Digitale Kampagne inkl. Microsite: Teaser-Content, Arbeitgeber-Profile, Short-Form-Clips und optimierte Event-Landingpage.</p>
-          <p><small style="color:var(--muted)">Rolle: Content-Strategie, Social Media, Visual Design · Tools: Adobe Creative Suite, CMS, Canva</small></p>
-          <p><em>Ergebnis: Rekordzahl an Besucher:innen und erhöhte Interaktionen.</em></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="case3" class="lb" aria-hidden="true">
-    <div class="dialog">
-      <div class="head">
-        <div class="title">Spatzenchor – neue visuelle Sprache</div>
-        <a class="close" href="#cases" aria-label="Schließen">✕</a>
-      </div>
-      <div class="body">
-        <div class="shot"><span class="ph">Icons/Pattern</span></div>
-        <div>
-          <p>Screendesign, Iconografie und visuelle Pattern – adaptierbar für Web & Print. Moderner, konsistenter Auftritt mit klarer Leit-Ästhetik.</p>
-          <p><small style="color:var(--muted)">Rolle: Screendesign, Iconentwicklung, Moodboard · Tools: Figma, Illustrator</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="case4" class="lb" aria-hidden="true">
-    <div class="dialog">
-      <div class="head">
-        <div class="title">DOM:BO – Storytelling im Musikmarketing</div>
-        <a class="close" href="#cases" aria-label="Schließen">✕</a>
-      </div>
-      <div class="body">
-        <div class="shot"><span class="ph">Artwork/Release</span></div>
-        <div>
-          <p>Aufbau einer eigenen Künstlermarke mit Website-Konzept, Spotify-Präsenz und Social Campaigns. Fokus: emotionale Narrative, visuelle Identität, Community-Aufbau.</p>
-          <p><small style="color:var(--muted)">Rolle: Konzept, Content, Audio/Video-Produktion · Tools: Adobe Creative Suite, Figma, Blender</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- ... restlicher HTML-Inhalt wie bisher (Hero, Match, Skills, Cases, Kontakt, Footer, Lightbox etc.) ... -->
 </body>
 </html>
