@@ -6,6 +6,21 @@
   <title>Dominik Bothe – Bewerbung · Online Marketing Manager Website (Beurer)</title>
   <meta name="description" content="Landingpage-Bewerbung von Dominik Bothe für die Position Online Marketing Manager (m/w/d) Website bei Beurer." />
 
+  <!-- Social Media Preview / Open Graph -->
+  <meta property="og:title" content="Bewerbung · Dominik Bothe – Online Marketing Manager Website (Beurer)">
+  <meta property="og:description" content="Ich bringe Inhalte zum Wirken – Strategie × UX-Content × SEO × Visuals. Hands-on mit CMS & Adobe, plus Tech-Bonus in Motion/3D.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://d-o-m-b-o.github.io/bewerbung/">
+  <meta property="og:image" content="https://d-o-m-b-o.github.io/bewerbung/img/preview.jpg">
+  <meta property="og:image:alt" content="Vorschau-Bild der Bewerbung von Dominik Bothe">
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bewerbung · Dominik Bothe – Online Marketing Manager Website (Beurer)">
+  <meta name="twitter:description" content="Ich bringe Inhalte zum Wirken – Strategie × UX-Content × SEO × Visuals. Hands-on mit CMS & Adobe, plus Tech-Bonus in Motion/3D.">
+  <meta name="twitter:image" content="https://d-o-m-b-o.github.io/bewerbung/img/preview.jpg">
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.png" type="image/png">
+
   <style>
     /* ——— Design Tokens ——— */
     :root{
@@ -34,7 +49,7 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       line-height:1.6; letter-spacing:.01em;
-      overflow-x:hidden; /* Verhindert horizontales Scrollen auf Mobile */
+      overflow-x:hidden; /* verhindert horizontales Scrollen auf Mobile */
     }
     a{color:inherit;text-decoration:none}
 
@@ -48,7 +63,11 @@
     nav a{opacity:.9;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
     nav a:hover{opacity:1;transform:translateY(-1px)}
 
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start;margin-top:32px}
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 1fr; /* gleiche Breite */
+      gap:32px; align-items:start; margin-top:32px;
+    }
 
     /* ——— Cards ——— */
     .h-card,.card{
@@ -134,9 +153,9 @@
       .h-card,.card{padding:20px}
       .case{gap:16px;margin:20px 0}
       .case .shot{min-height:180px}
-      .lb, .modal{padding:12px}
-      .lb .dialog, .modal-dialog{width:100%;max-width:100%;border-radius:16px;padding:16px}
-      .lb .body, .modal-body{grid-template-columns:1fr;gap:14px}
+      .lb{padding:12px}
+      .lb .dialog{width:100%;max-width:100%;border-radius:16px;padding:16px}
+      .lb .body{grid-template-columns:1fr;gap:14px}
     }
 
     /* ——— Scroll-To-Top ——— */
