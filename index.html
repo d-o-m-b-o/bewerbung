@@ -125,6 +125,256 @@
   </style>
 </head>
 <body>
-  <!-- ... restlicher HTML-Inhalt wie bisher (Hero, Match, Skills, Cases, Kontakt, Footer, Lightbox etc.) ... -->
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">DB</div>
+        <div>
+          <div style="font-weight:800;font-size:18px">Dominik Bothe</div>
+          <div style="color:var(--muted);font-size:14px">Online Marketing · Content · Design</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#match">Match</a>
+        <a href="#skills">Skills</a>
+        <a href="#cases">Cases</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="h-card">
+        <span class="badge">Bewerbung · Online Marketing Manager Website</span>
+        <h1 class="role">Ich bringe Inhalte zum Wirken – auf der Website und darüber hinaus.</h1>
+        <p class="subtitle">Strategie × UX-Content × SEO × Visuals. Hands-on mit CMS & Adobe, plus Tech-Bonus in Motion/3D. Für Beurer bedeutet das: bessere Nutzerführung, konsistente Internationalisierung und messbare Performance.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Gespräch anfragen</a>
+          <a class="btn ghost" href="#cases">Mini-Cases ansehen</a>
+          <a class="btn ghost" href="#cv" onclick="alert('Platzhalter – verlinke hier dein PDF-CV.');return false;">CV als PDF</a>
+        </div>
+        <div class="hero stats">
+          <div class="stat"><div class="n">4+ Jahre</div><div class="l">Social Media & Content</div></div>
+          <div class="stat"><div class="n">CMS</div><div class="l">Pflege & QA</div></div>
+          <div class="stat"><div class="n">SEO/UX</div><div class="l">Texte & Struktur</div></div>
+        </div>
+        <div style="margin-top:8px">
+          <span class="pill">Adobe PS · AI · PR · AE</span>
+          <span class="pill">Figma</span>
+          <span class="pill">Analytics</span>
+          <span class="pill">Internationalisierung</span>
+          <span class="pill">Barrierefreiheit</span>
+        </div>
+      </div>
+      <div class="h-card" aria-hidden="true">
+        <div class="shot" style="aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,rgba(210,31,42,.18),rgba(96,165,250,.12));border:1px solid rgba(255,255,255,.1);display:grid;place-items:center">
+          <div style="text-align:center">
+            <div style="font-size:56px;font-weight:800;letter-spacing:.5px">B</div>
+            <div style="color:var(--muted)">Beurer Focus</div>
+            <div style="margin-top:10px;font-size:13px;color:var(--muted)">Mockup-Platzhalter für Bild/QR/Case</div>
+          </div>
+        </div>
+        <p style="margin-top:14px;color:var(--muted);font-size:14px">Hinweis: Lade hier ein Produkt-/Website-Mockup oder QR-Code zu deinem PDF hoch.</p>
+      </div>
+    </section>
+
+    <section id="match" class="section">
+      <h2>Warum Beurer & ich passen</h2>
+      <div class="card">
+        <div class="match" role="table" aria-label="Matching-Tabelle">
+          <div role="row">
+            <strong>Anforderung</strong>
+            <div>3+ Jahre Erfahrung im Online-Marketing / CMS</div>
+            <div><em>Mein Match:</em> 4+ Jahre Social Media & Content, tägliche CMS-Pflege</div>
+          </div>
+          <div role="row">
+            <strong>Content-Qualität</strong>
+            <div>SEO, Barrierefreiheit, Nutzerfreundlichkeit</div>
+            <div>SEO-konforme, barrierearme Texte; klare UX-Architektur</div>
+          </div>
+          <div role="row">
+            <strong>Tools</strong>
+            <div>Adobe Creative Suite</div>
+            <div>PS, AI, PR, AE – plus Figma & Analytics</div>
+          </div>
+          <div role="row">
+            <strong>Internationalisierung</strong>
+            <div>Sprachlich/kulturell abgestimmte Inhalte</div>
+            <div>Mehr-Zielgruppen-Kommunikation & skalierbare Content-Patterns</div>
+          </div>
+          <div role="row">
+            <strong>Teamfit</strong>
+            <div>Zusammenarbeit mit Webshop-Team</div>
+            <div>Interdisziplinäre Abstimmung & klare Prozesse</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Kernkompetenzen</h2>
+      <div class="card">
+        <div class="skills">
+          <div class="meter"><b><span>Website-CMS / QA</span><span>Expert</span></b><progress value="92" max="100"></progress></div>
+          <div class="meter"><b><span>SEO & UX-Text</span><span>Advanced</span></b><progress value="88" max="100"></progress></div>
+          <div class="meter"><b><span>Adobe Suite</span><span>Advanced</span></b><progress value="90" max="100"></progress></div>
+          <div class="meter"><b><span>Analytics & Reporting</span><span>Advanced</span></b><progress value="84" max="100"></progress></div>
+          <div class="meter"><b><span>Motion/3D Bonus</span><span>Plus</span></b><progress value="70" max="100"></progress></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" class="section">
+      <h2>Mini-Cases (Auszug)</h2>
+      <div class="card">
+        <!-- Case 1 -->
+        <div class="case">
+          <div>
+            <h3>THU Website & Social Media – Studiengangsseiten neu gedacht</h3>
+            <p>Konzeption und Umsetzung neuer Studiengang-Seiten: klare Struktur, SEO-optimierte Texte, modulare FAQs, responsiv.</p>
+            <small>Rolle: Konzeption, Text, CMS-Pflege, SEO · Tools: TYPO3, Figma/Adobe XD, Analytics</small>
+            <div style="margin-top:10px"><a class="btn more" href="#case1">Mehr erfahren</a></div>
+          </div>
+          <div class="shot"><span class="ph">Screenshot/Mockup</span></div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case">
+          <div>
+            <h3>THU Karrieretag 2024 – Event-Kommunikation</h3>
+            <p>Microsite & Content: Teaser, Arbeitgeber-Profile, Short-Form-Clips, optimierte Landingpage.</p>
+            <small>Rolle: Content-Strategie, Social Media, Visual Design · Tools: Adobe Creative Suite, CMS, Canva</small>
+            <div style="margin-top:10px"><a class="btn more" href="#case2">Mehr erfahren</a></div>
+          </div>
+          <div class="shot"><span class="ph">Teaser/Microsite</span></div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case">
+          <div>
+            <h3>Spatzenchor – neue visuelle Sprache</h3>
+            <p>Iconografie, Screendesign und Pattern für einen konsistenten, modernen Auftritt.</p>
+            <small>Rolle: Screendesign, Iconentwicklung, Moodboard · Tools: Figma, Illustrator</small>
+            <div style="margin-top:10px"><a class="btn more" href="#case3">Mehr erfahren</a></div>
+          </div>
+          <div class="shot"><span class="ph">Icons/Pattern</span></div>
+        </div>
+
+        <!-- Case 4 -->
+        <div class="case">
+          <div>
+            <h3>DOM:BO – Storytelling im Musikmarketing</h3>
+            <p>Künstlermarke mit Website-Konzept, Spotify-Präsenz und Social Campaigns.</p>
+            <small>Rolle: Konzept, Content, Audio/Video-Produktion · Tools: Adobe Creative Suite, Figma, Blender</small>
+            <div style="margin-top:10px"><a class="btn more" href="#case4">Mehr erfahren</a></div>
+          </div>
+          <div class="shot"><span class="ph">Artwork/Release</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Kontakt & Unterlagen</h2>
+      <div class="card">
+        <p>Ich freue mich über ein Gespräch – gerne auch kurzfristig.</p>
+        <ul>
+          <li>E-Mail: <a href="mailto:dominik.bothe@example.com">dominik.bothe@example.com</a></li>
+          <li>Telefon: <a href="tel:+49-000-000000">+49&nbsp;000&nbsp;000000</a></li>
+          <li>Portfolio/Spotify: <a href="#" onclick="alert('Platzhalter – Link einfügen.');return false;">Link öffnen</a></li>
+          <li>CV als PDF: <a href="#" onclick="alert('Platzhalter – PDF hochladen & verlinken.');return false;">Download</a></li>
+        </ul>
+        <p class="tagline">„Ich veröffentliche keinen Content – ich veröffentliche Wirkung.“ <span class="beurer-dot" title="kleine Beurer-Anspielung"></span></p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="tagline">© Dominik Bothe · Bewerbung · Made for Beurer</div>
+      <div style="opacity:.7;font-size:13px">Dark Mode, responsive, kein Framework, 1 Datei.</div>
+    </footer>
+    <button id="toTop" class="to-top" aria-label="Nach oben">▲</button>
+  </div>
+
+  <!-- Minimal JS nur für Scroll-to-Top -->
+  <script>
+    const toTop = document.getElementById('toTop');
+    if(toTop){
+      const toggleTop = ()=>{
+        if(window.scrollY > 480){ toTop.classList.add('visible'); }
+        else { toTop.classList.remove('visible'); }
+      };
+      window.addEventListener('scroll', toggleTop, { passive: true });
+      toggleTop();
+      toTop.addEventListener('click', ()=>{
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+      });
+    }
+  </script>
+
+  <!-- CSS Lightbox Overlays -->
+  <div id="case1" class="lb" aria-hidden="true">
+    <div class="dialog">
+      <div class="head">
+        <div class="title">THU Website & Social Media – Studiengangsseiten neu gedacht</div>
+        <a class="close" href="#cases" aria-label="Schließen">✕</a>
+      </div>
+      <div class="body">
+        <div class="shot"><span class="ph">Vorher/Nachher · Wireframe</span></div>
+        <div>
+          <p>Relaunch und Struktur-Redesign der Studiengangsseiten an der THU: klare IA mit Hero/USP und CTA über der Falz, modulare FAQs, interne Verlinkung, barrierearme Copy (Lesbarkeit, Alt-Texte), Mobile-First QA.</p>
+          <p><small style="color:var(--muted)">Rolle: Konzeption, Text, CMS-Pflege, SEO · Tools: TYPO3, Figma/Adobe XD, Analytics</small></p>
+          <p><em>Ergebnis: bessere Orientierung, deutlich längere Verweildauer und spürbar mehr Klicks auf „Jetzt bewerben“.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="case2" class="lb" aria-hidden="true">
+    <div class="dialog">
+      <div class="head">
+        <div class="title">THU Karrieretag 2024 – Event-Kommunikation</div>
+        <a class="close" href="#cases" aria-label="Schließen">✕</a>
+      </div>
+      <div class="body">
+        <div class="shot"><span class="ph">Teaser/Microsite</span></div>
+        <div>
+          <p>Digitale Kampagne inkl. Microsite: Teaser-Content, Arbeitgeber-Profile, Short-Form-Clips und optimierte Event-Landingpage.</p>
+          <p><small style="color:var(--muted)">Rolle: Content-Strategie, Social Media, Visual Design · Tools: Adobe Creative Suite, CMS, Canva</small></p>
+          <p><em>Ergebnis: Rekordzahl an Besucher:innen und erhöhte Interaktionen.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="case3" class="lb" aria-hidden="true">
+    <div class="dialog">
+      <div class="head">
+        <div class="title">Spatzenchor – neue visuelle Sprache</div>
+        <a class="close" href="#cases" aria-label="Schließen">✕</a>
+      </div>
+      <div class="body">
+        <div class="shot"><span class="ph">Icons/Pattern</span></div>
+        <div>
+          <p>Screendesign, Iconografie und visuelle Pattern – adaptierbar für Web & Print. Moderner, konsistenter Auftritt mit klarer Leit-Ästhetik.</p>
+          <p><small style="color:var(--muted)">Rolle: Screendesign, Iconentwicklung, Moodboard · Tools: Figma, Illustrator</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="case4" class="lb" aria-hidden="true">
+    <div class="dialog">
+      <div class="head">
+        <div class="title">DOM:BO – Storytelling im Musikmarketing</div>
+        <a class="close" href="#cases" aria-label="Schließen">✕</a>
+      </div>
+      <div class="body">
+        <div class="shot"><span class="ph">Artwork/Release</span></div>
+        <div>
+          <p>Aufbau einer eigenen Künstlermarke mit Website-Konzept, Spotify-Präsenz und Social Campaigns. Fokus: emotionale Narrative, visuelle Identität, Community-Aufbau.</p>
+          <p><small style="color:var(--muted)">Rolle: Konzept, Content, Audio/Video-Produktion · Tools: Adobe Creative Suite, Figma, Blender</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
