@@ -33,7 +33,7 @@
         var(--bg);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-      line-height:1.6; letter-spacing:.01em;
+      line-height:1.6; letter-spacing:.01em; overflow-x:hidden;
     }
     a{color:inherit;text-decoration:none}
 
@@ -42,8 +42,7 @@
     header{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:0 0 32px;border-bottom:1px solid var(--line)}
 
     .brand{display:flex;gap:14px;align-items:center;flex-wrap:wrap;min-width:0}
-    .avatar{width:clamp(48px,6vw,68px);height:clamp(48px,6vw,68px);border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#0b0c0f;font-weight:800;box-shadow:var(--shadow-sm)} 
-    @media (max-width:600px){.avatar{width:52px;height:52px;font-size:16px;margin-right:6px}}
+    .avatar{width:clamp(48px,6vw,68px);height:clamp(48px,6vw,68px);border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#0b0c0f;font-weight:800;box-shadow:var(--shadow-sm)}
 
     nav{display:flex;gap:14px;flex-wrap:wrap;min-width:0}
     nav a{opacity:.9;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
@@ -60,8 +59,8 @@
     }
 
     .badge{display:inline-flex;gap:10px;align-items:center;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:14px;opacity:.95}
-    .role{font-size:46px;line-height:1.15;margin:18px 0 12px;letter-spacing:-.01em}
-    .subtitle{color:var(--muted);font-size:18px;max-width:68ch}
+    .role{font-size:clamp(34px,3.5vw,46px);line-height:1.15;margin:18px 0 12px;letter-spacing:-.01em}
+    .subtitle{color:var(--muted);font-size:clamp(16px,1.4vw,18px);max-width:68ch}
 
     .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
     .btn{padding:13px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);backdrop-filter: blur(4px);font-weight:700;transition:transform .15s ease, box-shadow .2s ease}
@@ -98,7 +97,8 @@
 
     /* ——— Cases ——— */
     .case{position:relative;display:grid;grid-template-columns:minmax(360px,1.2fr) minmax(300px,.8fr);gap:24px;align-items:start;margin:24px 0}
-    .case .shot{aspect-ratio:16/10;min-height:220px;border-radius:16px;background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#d6e7ff}
+    .case .shot{position:relative;aspect-ratio:16/10;min-height:220px;border-radius:16px;background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#d6e7ff;overflow:hidden}
+    .case .shot img,.modal-shot img,.lb .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
     .case h3{margin:0 0 6px}
     .case p{margin:0 0 8px}
     .case small{color:var(--muted)}
@@ -106,10 +106,6 @@
     .card .case + .case{padding-top:18px;border-top:1px dashed rgba(255,255,255,.12)}
     @media (max-width:940px){.case{grid-template-columns:1fr}.case .shot{order:2}}
     
-    
-    .case .shot{aspect-ratio:16/10;border-radius:16px;background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#d6e7ff}
-    .case small{color:var(--muted)}
-
     /* ——— Footer ——— */
     footer{margin-top:64px;padding-top:22px;border-top:1px dashed rgba(255,255,255,.16);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
     .tagline{color:var(--muted)}
@@ -125,9 +121,18 @@
       .match{grid-template-columns:1fr}
       .case{grid-template-columns:1fr}
     }
-    /* ——— Scroll To Top Button ——— */
-    #scrollTopBtn{position:fixed;bottom:28px;right:28px;width:46px;height:46px;border:none;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0c0f;font-size:22px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);z-index:80;transition:opacity .3s ease, transform .2s ease}
-    #scrollTopBtn:hover{transform:translateY(-3px);}
+    @media (max-width:520px){
+      .wrap{padding:36px 16px 72px}
+      .h-card,.card{padding:20px}
+      .case{gap:16px;margin:20px 0}
+      .case .shot{min-height:180px}
+      .lb, .modal{padding:12px}
+      .lb .dialog, .modal-dialog{width:100%;max-width:100%;border-radius:16px;padding:16px}
+      .lb .body, .modal-body{grid-template-columns:1fr;gap:14px}
+    }
+      .match{grid-template-columns:1fr}
+      .case{grid-template-columns:1fr}
+    }
     /* ——— Scroll-To-Top ——— */
     .to-top{position:fixed;right:22px;bottom:24px;width:44px;height:44px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);box-shadow:var(--shadow-sm);cursor:pointer;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s ease, transform .2s ease, background .2s ease}
     .to-top:hover{background:rgba(255,255,255,.10)}
@@ -261,7 +266,7 @@
       </div>
     </section>
 
-    <section id=\"cases\" class=\"section\">
+    <section id="cases" class="section">
       <h2>Mini-Cases (Auszug)</h2>
       <div class="card">
         <!-- Case 1: THU Studiengangsseiten -->
@@ -275,10 +280,10 @@
           <div>
             <h3>THU Website & Social Media – Studiengangsseiten neu gedacht</h3>
             <p>Konzeption und Umsetzung neuer Studiengang-Seiten: klare Struktur, SEO-optimierte Texte, modulare FAQs, responsiv.</p>
-            <small>Rolle: Konzeption, Text, CMS-Pflege, SEO · Tools: TYPO3, Figma/Adobe XD, Analytics</small>
+            <small>\1</small>
             <div style="margin-top:10px"><a class="btn more" href="#case1">Mehr erfahren</a></div>
           </div>
-          <div class="shot">Screenshot/Mockup</div>
+          <div class="shot"><span class="ph">Screenshot/Mockup</span></div>
         </div>
 
         <!-- Case 2: THU Karrieretag 2024 -->
@@ -292,10 +297,12 @@
           <div>
             <h3>THU Karrieretag 2024 – Event-Kommunikation</h3>
             <p>Microsite & Content: Teaser, Arbeitgeber-Profile, Short-Form-Clips, optimierte Landingpage.</p>
-            <small>Rolle: Content-Strategie, Social Media, Visual Design · Tools: Adobe Creative Suite, CMS, Canva</small>
-            <div style="margin-top:10px"><a class="btn more" href="#case2">Mehr erfahren</a></div>
+            <small>\1</small>
+            <div style="margin-top:10px">
+              <button class="btn more btn-more" type="button">Mehr erfahren</button>
+            </div>
           </div>
-          <div class="shot">Teaser/Microsite</div>
+          <div class="shot"><span class="ph">Teaser/Microsite</span></div>
         </div>
 
         <!-- Case 3: Spatzenchor Design -->
@@ -309,10 +316,12 @@
           <div>
             <h3>Spatzenchor – neue visuelle Sprache</h3>
             <p>Iconografie, Screendesign und Pattern für einen konsistenten, modernen Auftritt.</p>
-            <small>Rolle: Screendesign, Iconentwicklung, Moodboard · Tools: Figma, Illustrator</small>
-            <div style="margin-top:10px"><a class="btn more" href="#case3">Mehr erfahren</a></div>
+            <small>\1</small>
+            <div style="margin-top:10px">
+              <button class="btn more btn-more" type="button">Mehr erfahren</button>
+            </div>
           </div>
-          <div class="shot">Icons/Pattern</div>
+          <div class="shot"><span class="ph">Icons/Pattern</span></div>
         </div>
 
         <!-- Case 4: DOM:BO Bonus-Case -->
@@ -326,10 +335,12 @@
           <div>
             <h3>DOM:BO – Storytelling im Musikmarketing</h3>
             <p>Künstlermarke mit Website-Konzept, Spotify-Präsenz und Social Campaigns.</p>
-            <small>Rolle: Konzept, Content, Audio/Video-Produktion · Tools: Adobe Creative Suite, Figma, Blender</small>
-            <div style="margin-top:10px"><a class="btn more" href="#case4">Mehr erfahren</a></div>
+            <small>\1</small>
+            <div style="margin-top:10px">
+              <button class="btn more btn-more" type="button">Mehr erfahren</button>
+            </div>
           </div>
-          <div class="shot">Artwork/Release</div>
+          <div class="shot"><span class="ph">Artwork/Release</span></div>
         </div>
       </div>
     </section>
@@ -370,17 +381,6 @@
     });
   }
 </script>
-  <button id="scrollTopBtn" aria-label="Nach oben">↑</button>
-
-  <script>
-    const scrollBtn=document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll',()=>{
-      if(window.scrollY>300){scrollBtn.style.display='flex';scrollBtn.style.opacity='1'} else {scrollBtn.style.display='none';}
-    });
-    scrollBtn.addEventListener('click',()=>{
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  </script>
   <!-- CSS Lightbox Overlays -->
   <div id="case1" class="lb" aria-hidden="true">
     <div class="dialog">
@@ -389,7 +389,7 @@
         <a class="close" href="#cases" aria-label="Schließen">✕</a>
       </div>
       <div class="body">
-        <div class="shot">Vorher/Nachher · Wireframe</div>
+        <div class="shot"><span class="ph">Vorher/Nachher · Wireframe</span></div>
         <div>
           <p>Relaunch und Struktur-Redesign der Studiengangsseiten an der THU: klare IA mit Hero/USP und CTA über der Falz, modulare FAQs, interne Verlinkung, barrierearme Copy (Lesbarkeit, Alt-Texte), Mobile‑First QA.</p>
           <p><small style="color:var(--muted)">Rolle: Konzeption, Text, CMS-Pflege, SEO · Tools: TYPO3, Figma/Adobe XD, Analytics</small></p>
