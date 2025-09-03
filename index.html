@@ -22,18 +22,16 @@
   <meta name="twitter:image" content="https://d-o-m-b-o.github.io/bewerbung/img/preview.jpg">
 
   <style>
-    /* —— v1.1 clean ————————————————————————————————————————— */
     :root{
       --bg:#0b0c0f; --layer:#0e1117; --card:#11141c; --muted:#aeb4c2; --text:#eef2f6; --line:#1b2030;
       --accent:#6ee7b7; --accent-2:#60a5fa; --brand:#d21f2a; --radius:20px;
       --shadow-sm:0 6px 16px rgba(0,0,0,.25); --shadow-lg:0 20px 50px rgba(0,0,0,.35);
-      /* Einheitliche Kartenbreite (Desktop) */
-      --card-w: 560px;
     }
 
     /* Base */
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;color:var(--text);
+    html,body{
+      margin:0;padding:0;color:var(--text);
       background:
         radial-gradient(900px 520px at 75% -10%, rgba(110,231,183,.06), transparent 60%),
         radial-gradient(900px 520px at 10% 0%, rgba(96,165,250,.05), transparent 60%),
@@ -55,9 +53,17 @@
     nav a{opacity:.9;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
     nav a:hover{opacity:1;transform:translateY(-1px)}
 
-    .hero{display:grid;grid-template-columns:repeat(2, minmax(0, var(--card-w)));gap:32px;align-items:stretch;justify-content:center;margin-top:32px}
-    .h-card,.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-lg);width:min(100%, var(--card-w));max-width:var(--card-w);margin-inline:auto}
-    .h-card{box-sizing:border-box}
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;margin-top:32px
+    }
+    .h-card,.card{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      padding:32px;
+      box-shadow:var(--shadow-sm);
+    }
 
     .badge{display:inline-flex;gap:10px;align-items:center;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:14px;opacity:.95}
     .role{font-size:clamp(34px,3.5vw,46px);line-height:1.15;margin:18px 0 12px;letter-spacing:-.01em}
@@ -94,12 +100,18 @@
     progress::-webkit-progress-value{background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
 
     /* Cases */
-    .case{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start;margin:24px 0}
+    .case{
+      display:grid;grid-template-columns:1.2fr 0.8fr;gap:24px;align-items:start;margin:24px 0
+    }
     .case h3{margin:0 0 6px}
     .case p{margin:0 0 8px}
     .case small{color:var(--muted)}
     .card .case + .case{padding-top:18px;border-top:1px dashed rgba(255,255,255,.12)}
-    .case .shot{position:relative;aspect-ratio:16/10;min-height:220px;border-radius:16px;background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#d6e7ff;overflow:hidden;order:2}
+    .case .shot{
+      position:relative;aspect-ratio:16/10;min-height:220px;border-radius:16px;
+      background:linear-gradient(135deg,rgba(110,231,183,.10),rgba(96,165,250,.10));
+      border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#d6e7ff;overflow:hidden;order:2
+    }
     .case .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
     .case .shot .ph{position:relative;z-index:1;opacity:.75}
 
@@ -129,13 +141,12 @@
     /* Responsive */
     @media (max-width:1080px){.wrap{padding:44px 22px 80px}.role{font-size:40px}}
     @media (max-width:940px){
-      .hero{grid-template-columns:1fr;justify-content:center;justify-items:center}
-      .hero > *{justify-self:center;width:min(100%, var(--card-w))}
+      .hero{grid-template-columns:1fr}
       .match{grid-template-columns:1fr}
       .case{grid-template-columns:1fr}
       .case .shot{order:2}
-    }.match{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case .shot{order:2}}.match{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case .shot{order:2}}
-    @media (max-width:780px){.lb .body{grid-template-columns:1fr}}
+      .lb .body{grid-template-columns:1fr}
+    }
     @media (max-width:520px){
       .wrap{padding:36px 16px 72px}
       .h-card,.card{padding:20px}
@@ -165,6 +176,7 @@
       </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
       <div class="h-card">
         <span class="badge">Bewerbung · Online Marketing Manager Website</span>
@@ -200,6 +212,7 @@
       </div>
     </section>
 
+    <!-- Match -->
     <section id="match" class="section">
       <h2>Warum Beurer & ich passen</h2>
       <div class="card">
@@ -233,6 +246,7 @@
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills" class="section">
       <h2>Kernkompetenzen</h2>
       <div class="card">
@@ -246,6 +260,7 @@
       </div>
     </section>
 
+    <!-- Cases -->
     <section id="cases" class="section">
       <h2>Mini-Cases (Auszug)</h2>
       <div class="card">
@@ -295,6 +310,7 @@
       </div>
     </section>
 
+    <!-- Kontakt -->
     <section id="contact" class="section">
       <h2>Kontakt & Unterlagen</h2>
       <div class="card">
