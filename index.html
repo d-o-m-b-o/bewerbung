@@ -128,7 +128,13 @@
 
     /* Responsive */
     @media (max-width:1080px){.wrap{padding:44px 22px 80px}.role{font-size:40px}}
-    @media (max-width:940px){.hero{grid-template-columns:1fr;justify-content:stretch}.match{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case .shot{order:2}}.match{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case .shot{order:2}}
+    @media (max-width:940px){
+      .hero{grid-template-columns:1fr;justify-content:center;justify-items:center}
+      .hero > *{justify-self:center;width:min(100%, var(--card-w))}
+      .match{grid-template-columns:1fr}
+      .case{grid-template-columns:1fr}
+      .case .shot{order:2}
+    }.match{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case .shot{order:2}}.match{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case .shot{order:2}}
     @media (max-width:780px){.lb .body{grid-template-columns:1fr}}
     @media (max-width:520px){
       .wrap{padding:36px 16px 72px}
